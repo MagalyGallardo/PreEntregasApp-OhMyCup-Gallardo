@@ -3,6 +3,7 @@ import products from '../utils/data/products.json'
 import { useEffect, useState } from 'react'
 import colors from '../utils/globals/colors'
 import Header from '../components/Header'
+import fonts from "../utils/globals/fonts"
 
 const ProductDetail = ({productId,portrait}) => {
 
@@ -24,7 +25,7 @@ const ProductDetail = ({productId,portrait}) => {
         />
         <View style={[styles.containerText,!portrait && {width:"40%"}]}>
           <Text style={styles.title}>{product.title}</Text>
-          <Text>{product.description}</Text>
+          <Text style={styles.descriptionText}>{product.description}</Text>
         </View>
         <View style={[styles.containerPrice ,!portrait && {width:"20%",flexDirection:"column"}]}>
           <Text style={styles.price}>$ {product.price}</Text>
@@ -68,10 +69,17 @@ const styles = StyleSheet.create({
   },
   title:{
     fontSize:20,
-    fontWeight:"bold"
+    fontWeight:"bold",
+    color:"white",
+    fontFamily: fonts.PoppinsLightItalic
+    
+  },
+  descriptionText: {
+    color:"white"
   },
   price:{
-    fontSize:30
+    fontSize:30,
+    color:"white"
   },
   buyNow:{
     backgroundColor:colors.brown2,

@@ -6,7 +6,7 @@ const Home = ({selectedCategoryState}) => {
     
   return (
     <>
-        <Header title="Home"/>
+        <Header title="¡Oh My Cup!"/>
         <Categories selectedCategoryState={selectedCategoryState}/>
     </>
   )
