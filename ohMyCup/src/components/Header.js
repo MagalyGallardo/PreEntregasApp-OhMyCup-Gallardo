@@ -18,11 +18,12 @@ const styles = StyleSheet.create({
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
         width:"100%",
         justifyContent:"center",
-        alignItems:"center"
+        alignItems:"center",
+        marginBottom: 30,
     },
     text:{
         fontSize:30,
-        fontFamily: fonts.PoppinsBold
-        
+        fontFamily: fonts.PoppinsBold,
+        marginBottom: 15,
     }
 })

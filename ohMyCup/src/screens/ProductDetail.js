@@ -24,7 +24,7 @@ const ProductDetail = ({productId,portrait}) => {
           resizeMode='cover'
         />
         <View style={[styles.containerText,!portrait && {width:"40%"}]}>
-          <Text style={styles.title}>{product.title}</Text>
+          <Text style={styles.titleProduct}>{product.title}</Text>
           <Text style={styles.descriptionText}>{product.description}</Text>
         </View>
         <View style={[styles.containerPrice ,!portrait && {width:"20%",flexDirection:"column"}]}>
@@ -67,19 +67,20 @@ const styles = StyleSheet.create({
       alignItems:"center",
       marginVertical:10
   },
-  title:{
-    fontSize:20,
-    fontWeight:"bold",
+  titleProduct:{
+    fontSize:25,
     color:"white",
-    fontFamily: fonts.PoppinsLightItalic
-    
+    fontFamily: fonts.PoppinsBold,
+
   },
   descriptionText: {
-    color:"white"
+    color:"white",
+    fontFamily: fonts.PoppinsRegular
   },
   price:{
     fontSize:30,
-    color:"white"
+    color:"white",
+    fontFamily: fonts.PoppinsBold,
   },
   buyNow:{
     backgroundColor:colors.brown2,
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
   },
   buyNowText:{
     color:"white",
-    fontSize:25
+    fontSize:22,
+    fontFamily: fonts.PoppinsLightItalic,
   }
 })

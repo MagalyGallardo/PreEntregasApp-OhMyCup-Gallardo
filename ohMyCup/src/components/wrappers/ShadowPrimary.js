@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         /*Android*/
         elevation:10,
         /*IOS*/
-        shadowColor: "#000",
+        shadowColor: "#fff",
         shadowOffset: {
             width: 0,
             height: 6,
