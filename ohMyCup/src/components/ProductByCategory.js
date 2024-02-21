@@ -2,9 +2,9 @@ import { StyleSheet, Text,Image, Pressable } from 'react-native'
 import colors from '../utils/globals/colors'
 import fonts from '../utils/globals/fonts'
 
-const ProductByCategory = ({item ,selectedProductId}) => {
+const ProductByCategory = ({item, navigation}) => {
   return (
-    <Pressable onPress={()=>selectedProductId(item.id)} style={styles.container}>
+    <Pressable onPress={()=>navigation.navigate("ProductDetail", {productId:item.id})} style={styles.container}>
       <Text style={styles.text}>{item.title}</Text>
       <Image style={styles.image} source={{uri:item.thumbnail}} resizeMode="cover"/>
     </Pressable>

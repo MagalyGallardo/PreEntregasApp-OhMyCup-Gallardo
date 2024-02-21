@@ -2,11 +2,10 @@ import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import products from '../utils/data/products.json'
 import { useEffect, useState } from 'react'
 import colors from '../utils/globals/colors'
-import Header from '../components/Header'
 import fonts from "../utils/globals/fonts"
 
-const ProductDetail = ({productId,portrait}) => {
-
+const ProductDetail = ({route}) => {
+  const { productId } = route.params
   const [product,setProduct] = useState({})
 
   useEffect(()=>{
@@ -16,18 +15,17 @@ const ProductDetail = ({productId,portrait}) => {
 
   return (
     <View style={styles.container}>
-    <Header title="Detalle del producto"/>
-    <View style={[styles.content,!portrait && {flexDirection:"row",gap:30,padding:20}] } >
+    <View style={styles.content} >
         <Image
-          style={[styles.image,!portrait && {width:"50%",height:200}]}
+          style={styles.image}
           source={{uri:product?.images ? product.images[0] : null}}
           resizeMode='cover'
         />
-        <View style={[styles.containerText,!portrait && {width:"40%"}]}>
+        <View style={styles.containerText}>
           <Text style={styles.titleProduct}>{product.title}</Text>
           <Text style={styles.descriptionText}>{product.description}</Text>
         </View>
-        <View style={[styles.containerPrice ,!portrait && {width:"20%",flexDirection:"column"}]}>
+        <View style={styles.containerPrice}>
           <Text style={styles.price}>$ {product.price}</Text>
           <Pressable style={styles.buyNow}>
             <Text style={styles.buyNowText}>Comprar</Text>
@@ -45,7 +43,7 @@ const styles = StyleSheet.create({
     width:"100%",
     flex:1,
     justifyContent:"start",
-    alignItems:"center"
+    alignItems:"center",
   },
   content:{
     width:"100%"
