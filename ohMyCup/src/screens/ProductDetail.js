@@ -3,6 +3,8 @@ import products from '../utils/data/products.json'
 import { useEffect, useState } from 'react'
 import colors from '../utils/globals/colors'
 import fonts from "../utils/globals/fonts"
+import {Counter} from "../components/Counter"
+
 
 const ProductDetail = ({route}) => {
   const { productId } = route.params
@@ -13,9 +15,11 @@ const ProductDetail = ({route}) => {
     setProduct(productFinded)
   },[productId])
 
+
+
   return (
     <View style={styles.container}>
-    <View style={styles.content} >
+      <View style={styles.content}>
         <Image
           style={styles.image}
           source={{uri:product?.images ? product.images[0] : null}}
@@ -27,9 +31,10 @@ const ProductDetail = ({route}) => {
         </View>
         <View style={styles.containerPrice}>
           <Text style={styles.price}>$ {product.price}</Text>
-          <Pressable style={styles.buyNow}>
-            <Text style={styles.buyNowText}>Comprar</Text>
-          </Pressable>
+          <Counter 
+            initialValue={1}
+            product={product} 
+            textButton="Carrito" />
         </View>
       </View>
     </View>
@@ -67,17 +72,17 @@ const styles = StyleSheet.create({
   },
   titleProduct:{
     fontSize:25,
-    color:"white",
+    color:"black",
     fontFamily: fonts.PoppinsBold,
 
   },
   descriptionText: {
-    color:"white",
+    color:"black",
     fontFamily: fonts.PoppinsRegular
   },
   price:{
     fontSize:30,
-    color:"white",
+    color:"black",
     fontFamily: fonts.PoppinsBold,
   },
   buyNow:{
